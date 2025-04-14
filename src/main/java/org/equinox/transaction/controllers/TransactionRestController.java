@@ -96,8 +96,8 @@ public class TransactionRestController {
     }
 
     @GetMapping("/account/{iban}/balance")
-    public ResponseEntity<Double> getBalanceByAccount(@PathVariable("iban") String accountIban) {
-        List<Transaction> transactions = transactionRepository.findByAccountIban(accountIban);
+    public ResponseEntity<Double> getBalanceByAccount(@PathVariable("iban") String iban) {
+        List<Transaction> transactions = transactionRepository.findByAccountIban(iban);
         if (transactions.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
